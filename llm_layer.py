@@ -189,12 +189,60 @@ def generate_local_fallback(prompt, system_prompt=""):
   }
 ]
 """
+
+def generate_local_fallback(prompt: str, system_prompt: str = "") -> str:
+    prompt_lower = prompt.lower()
+    
+    # 1. Check if this is the debate phase
     if "debate" in prompt_lower or "müzakere" in prompt_lower or "tartışma" in prompt_lower:
         return (
             "[Katılımcı A]: Fiyat tarafı beni düşündürüyor; fayda net değilse hemen karar vermem.\n"
             "[Katılımcı B]: Haklısın ama marka deneme paketi, şeffaf kanıt ve yerel faydayı iyi anlatırsa değer algısı güçlenir.\n"
             "[Katılımcı A]: O zaman önce küçük paketle denemeye daha sıcak bakarım; riskim azalırsa fikrim değişebilir."
         )
-    if "single natural sentence" in prompt_lower or "tek" in prompt_lower:
-        return "Ben önce fiyat ve gerçek faydayı görmek isterim; deneme seçeneği ve net kanıt varsa bu kampanyaya şans veririm."
-    return "Demo modunda sentetik LLM çıktısı üretildi. Sayısal değerler hesaplanan raporla uyumlu tutuldu."
+        
+    # 2. Extract decision from the prompt to generate a somewhat relevant fallback quote
+    import random
+    decision = "Ignore"
+    if "decision: buy" in prompt_lower or "karar: buy" in prompt_lower or "karar: alır" in prompt_lower:
+        decision = "Buy"
+    elif "skeptical" in prompt_lower or "şüpheyle" in prompt_lower:
+        decision = "Skeptical Buy"
+    elif "reject" in prompt_lower or "reddeder" in prompt_lower:
+        decision = "Reject"
+
+    # Diverse local fallback pools based on decision
+    if decision == "Buy":
+        pool = [
+            "Bence fiyatına göre sunduğu değer harika, maaş yatar yatmaz deneyeceğim.",
+            "Kesinlikle benim yaşam tarzıma uygun, eşim de beğenecektir.",
+            "Uzun zamandır böyle pratik bir çözüm arıyordum, hemen alırım.",
+            "Kalitesi ortada, güvendiğim bir marka olduğu için hiç düşünmeden alıyorum.",
+            "Hem ekonomik hem de ihtiyaçlarımı tam karşılıyor, kaçırmam."
+        ]
+    elif decision == "Skeptical Buy":
+        pool = [
+            "Fikre sıcak bakıyorum ama önce küçük bir deneme paketi alıp kalitesini görmem lazım.",
+            "İlgi çekici duruyor ancak sosyal medyada veya çevremde kullanan birini görsem daha rahat alırım.",
+            "Fiyatı bütçemi biraz zorluyor, belki bir sonraki maaş gününde indirim yakalarsam alabilirim.",
+            "Açıkçası vaatleri güzel ama uzun vadede dediklerini sağlayabileceğinden emin değilim.",
+            "İhtiyacım var, yine de diğer markalarla fiyat karşılaştırması yapmadan doğrudan sepete atmam."
+        ]
+    elif decision == "Reject":
+        pool = [
+            "Benim günlük rutinimde buna hiç yer yok, gereksiz bir harcama olurdu.",
+            "Fiyatı sunduğu özelliğe göre inanılmaz uçuk, asla bu parayı vermem.",
+            "Bu markayla daha önce kötü bir deneyimim oldu, ne kampanya yapsalar almam.",
+            "İçeriği veya kalitesi beni hiç ikna etmedi, bildiğimden şaşmam.",
+            "Benim yaşım ve mesleğim gereği bu tarz ürünler hiç ilgimi çekmiyor."
+        ]
+    else:  # Ignore / Pas Geçer
+        pool = [
+            "Reklamı görsem muhtemelen geçerdim, bana hitap eden bir tarafı yok.",
+            "İhtiyacım olmayan bir şey, ilgilenmiyorum bile.",
+            "Eminim birileri için iyidir ama benlik değil, hayatıma bir artısı olmaz.",
+            "Bu aralar başka önceliklerim var, böyle şeylere ayıracak bütçem ve vaktim yok.",
+            "Çok sıradan geldi, dönüp tekrar bakma ihtiyacı hissetmedim."
+        ]
+        
+    return random.choice(pool)
