@@ -193,7 +193,74 @@ def generate_local_fallback(prompt, system_prompt=""):
 def generate_local_fallback(prompt: str, system_prompt: str = "") -> str:
     prompt_lower = prompt.lower()
     
-    # 1. Check if this is the debate phase
+    if "json array" in prompt_lower and "consumer segments" in prompt_lower:
+        return """[
+  {
+    "id": "segment_1",
+    "name": "Dijital Genç Profesyoneller",
+    "weight_pct": 28,
+    "age_range": [24, 38],
+    "avg_income": 56000,
+    "price_sensitivity": 4.8,
+    "sustainability_focus": 6.4,
+    "brand_loyalty": 5.8,
+    "ad_receptivity": 7.8,
+    "tech_savviness": 8.7,
+    "core_value": "Status & Quality",
+    "allowed_cities": ["İstanbul", "Ankara", "İzmir"],
+    "allowed_occupations": ["Pazarlama Uzmanı", "Yazılım Geliştirici", "Ürün Yöneticisi", "Finans Analisti"],
+    "habits": ["Online yorumlara bakarak satın alır.", "Premium faydayı net görürse fiyatı tolere eder.", "Mobil kampanyalara hızlı tepki verir."]
+  },
+  {
+    "id": "segment_2",
+    "name": "Değer ve Sürdürülebilirlik Odaklılar",
+    "weight_pct": 22,
+    "age_range": [20, 42],
+    "avg_income": 42000,
+    "price_sensitivity": 6.2,
+    "sustainability_focus": 8.8,
+    "brand_loyalty": 5.2,
+    "ad_receptivity": 6.9,
+    "tech_savviness": 7.4,
+    "core_value": "Sustainability & Ethics",
+    "allowed_cities": ["İzmir", "Muğla", "Aydın", "İstanbul"],
+    "allowed_occupations": ["Öğretmen", "Grafiker", "STK Çalışanı", "Araştırma Görevlisi"],
+    "habits": ["Markanın şeffaf etki kanıtını arar.", "Yerel üretim ve etik tedariki önemser.", "Yeşil iddialara karşı kanıt bekler."]
+  },
+  {
+    "id": "segment_3",
+    "name": "Bütçe Hassas Aileler",
+    "weight_pct": 34,
+    "age_range": [30, 55],
+    "avg_income": 36000,
+    "price_sensitivity": 8.7,
+    "sustainability_focus": 4.2,
+    "brand_loyalty": 4.8,
+    "ad_receptivity": 5.1,
+    "tech_savviness": 5.8,
+    "core_value": "Economy & Utility",
+    "allowed_cities": ["Bursa", "Konya", "Adana", "Kayseri", "Samsun"],
+    "allowed_occupations": ["Memur", "Muhasebeci", "Hemşire", "Satış Temsilcisi", "Teknisyen"],
+    "habits": ["Birim fiyatı ve kampanya avantajını karşılaştırır.", "Deneme paketi olmadan risk almak istemez.", "Hane bütçesine etkisini öne koyar."]
+  },
+  {
+    "id": "segment_4",
+    "name": "Geleneksel Güven Arayanlar",
+    "weight_pct": 16,
+    "age_range": [48, 70],
+    "avg_income": 28000,
+    "price_sensitivity": 7.6,
+    "sustainability_focus": 4.7,
+    "brand_loyalty": 7.9,
+    "ad_receptivity": 4.2,
+    "tech_savviness": 3.8,
+    "core_value": "Nostalgia & Trust",
+    "allowed_cities": ["İzmir", "Ankara", "Bursa", "Denizli", "Eskişehir"],
+    "allowed_occupations": ["Emekli Öğretmen", "Esnaf", "Ev Hanımı", "Emekli Memur"],
+    "habits": ["Bildik markaya ve yakın çevre tavsiyesine güvenir.", "Karmaşık dijital adımları sevmez.", "Somut kalite kanıtı ister."]
+  }
+]"""
+
     if "debate" in prompt_lower or "müzakere" in prompt_lower or "tartışma" in prompt_lower:
         return (
             "[Katılımcı A]: Fiyat tarafı beni düşündürüyor; fayda net değilse hemen karar vermem.\n"
@@ -201,7 +268,6 @@ def generate_local_fallback(prompt: str, system_prompt: str = "") -> str:
             "[Katılımcı A]: O zaman önce küçük paketle denemeye daha sıcak bakarım; riskim azalırsa fikrim değişebilir."
         )
         
-    # 2. Extract decision from the prompt to generate a somewhat relevant fallback quote
     import random
     decision = "Ignore"
     if "decision: buy" in prompt_lower or "karar: buy" in prompt_lower or "karar: alır" in prompt_lower:

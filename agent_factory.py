@@ -29,10 +29,26 @@ REQUIRED_SEGMENT_KEYS = [
 
 
 def _extract_json_array(text: str) -> List[Dict[str, Any]]:
-    match = re.search(r"\[.*\]", text or "", re.DOTALL)
+    if not text:
+        raise ValueError("LLM response is empty.")
+    
+    # Strip markdown formatting if present
+    clean_text = text.strip()
+    if clean_text.startswith("```json"):
+        clean_text = clean_text[7:]
+    elif clean_text.startswith("```"):
+        clean_text = clean_text[3:]
+    if clean_text.endswith("```"):
+        clean_text = clean_text[:-3]
+    
+    match = re.search(r"\[.*\]", clean_text, re.DOTALL)
     if not match:
-        raise ValueError("LLM response did not contain a JSON array.")
-    return json.loads(match.group(0))
+        raise ValueError(f"LLM response did not contain a JSON array. Raw output: {text[:500]}")
+    
+    try:
+        return json.loads(match.group(0))
+    except json.JSONDecodeError as e:
+        raise ValueError(f"LLM JSON Decode Error: {e}. Raw output: {text[:500]}")
 
 
 def _as_list(value: Any, fallback: Iterable[str]) -> List[str]:
