@@ -1,0 +1,31 @@
+{
+  "brand": "Test Marka",
+  "category": "Genel",
+  "region": "TR",
+  "date_range": {
+    "from": "2026-04-01",
+    "to": "2026-05-19"
+  },
+  "origin": {
+    "country": "Bilinmiyor",
+    "details": "Ham veri kaynaklarında menşe bilgisi doğrudan tespit edilememiştir."
+  },
+  "distributor": {
+    "name": "Bilinmiyor",
+    "country": "Bilinmiyor",
+    "details": "Ham veri kaynaklarında yerel ortak veya distribütör yapısı tespit edilememiştir."
+  },
+  "news_and_publications": [
+    {
+      "source": "newsapi",
+      "source_type": "news",
+      "title": "Test Marka Hakkında Çıkan Sektörel Haberler",
+      "url": "https://newsapi.org",
+      "date": "2026-05-19",
+      "relevance_summary": "Markanın Türkiye'deki kurumsal varlığına ilişkin güncel haber taraması."
+    }
+  ],
+  "raw_items_count": 0,
+  "confidence_score": 75,
+  "note": "API KEY BULUNAMADI: Bu rapor yapay zeka entegrasyonu olmadan kurumsal gerçekler şablonu üzerinden üretilmiştir. Gerçek LLM analizi için lütfen GEMINI_API_KEY tanımlayın."
+}

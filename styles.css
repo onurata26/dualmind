@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ================================================================
+   AURORA LIGHT ANIMATIONS — multiple dancing blobs
+   ================================================================ */
+
+@keyframes blob1 {
+    0%   { transform: translate(0%, 0%) scale(1);     opacity: 0.6; }
+    25%  { transform: translate(20%, -15%) scale(1.2); opacity: 0.8; }
+    50%  { transform: translate(-10%, 10%) scale(0.9); opacity: 0.5; }
+    75%  { transform: translate(15%, 5%) scale(1.1);   opacity: 0.7; }
+    100% { transform: translate(0%, 0%) scale(1);      opacity: 0.6; }
+}
+
+@keyframes blob2 {
+    0%   { transform: translate(0%, 0%) scale(1);      opacity: 0.5; }
+    25%  { transform: translate(-25%, 10%) scale(1.15); opacity: 0.7; }
+    50%  { transform: translate(15%, -20%) scale(1.3);  opacity: 0.6; }
+    75%  { transform: translate(-5%, 15%) scale(0.95);  opacity: 0.8; }
+    100% { transform: translate(0%, 0%) scale(1);       opacity: 0.5; }
+}
+
+@keyframes blob3 {
+    0%   { transform: translate(0%, 0%) scale(1);      opacity: 0.4; }
+    33%  { transform: translate(30%, 10%) scale(1.25);  opacity: 0.6; }
+    66%  { transform: translate(-20%, -15%) scale(0.8); opacity: 0.5; }
+    100% { transform: translate(0%, 0%) scale(1);       opacity: 0.4; }
+}
+
+@keyframes hueShift {
+    0%   { filter: blur(140px) hue-rotate(0deg);   }
+    50%  { filter: blur(160px) hue-rotate(60deg);  }
+    100% { filter: blur(140px) hue-rotate(0deg);   }
+}
+
+/* ================================================================
+   BASE — pitch black canvas
+   ================================================================ */
+
+.stApp,
+#root,
+[data-testid="stAppViewContainer"] {
+    background-color: #000000 !important;
+    background-image: none !important;
+    color: #ffffff;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Streamlit's main view container needs to be transparent so blobs show */
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+section[data-testid="stMain"],
+.main .block-container {
+    background: transparent !important;
+}
+
+/* ================================================================
+   AURORA BLOBS — injected as children of .aurora-container
+   We use the div Streamlit renders + pure CSS for child divs
+   But since Streamlit strips child divs, we use the stApp::before
+   and ::after pseudo-elements plus a third blob via the header.
+   ================================================================ */
+
+/* Blob 1 — purple, bottom-left */
+.stApp::before {
+    content: "";
+    position: fixed;
+    width: 50vw;
+    height: 50vw;
+    max-width: 900px;
+    max-height: 900px;
+    bottom: -15%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, rgba(124, 58, 237, 0.3) 40%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: blob1 18s ease-in-out infinite, hueShift 25s ease-in-out infinite;
+}
+
+/* Blob 2 — blue, bottom-right */
+.stApp::after {
+    content: "";
+    position: fixed;
+    width: 55vw;
+    height: 55vw;
+    max-width: 1000px;
+    max-height: 1000px;
+    bottom: -20%;
+    right: -10%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, rgba(37, 99, 235, 0.25) 40%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: blob2 22s ease-in-out infinite, hueShift 30s ease-in-out infinite;
+}
+
+/* Blob 3 — teal/cyan, center-bottom — via the aurora-bg div */
+.aurora-bg {
+    position: fixed !important;
+    width: 45vw;
+    height: 45vw;
+    max-width: 800px;
+    max-height: 800px;
+    bottom: -10%;
+    left: 30%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, rgba(14, 165, 233, 0.25) 40%, transparent 70%) !important;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(140px);
+    animation: blob3 20s ease-in-out infinite, hueShift 28s ease-in-out infinite;
+    transform: none !important;
+}
+
+/* Blob 4 — emerald green, top-right */
+@keyframes blob4 {
+    0%   { transform: translate(0, 0) scale(1);       opacity: 0.35; }
+    30%  { transform: translate(-15%, 20%) scale(1.2); opacity: 0.5; }
+    60%  { transform: translate(10%, -10%) scale(0.9); opacity: 0.4; }
+    100% { transform: translate(0, 0) scale(1);        opacity: 0.35; }
+}
+
+.aurora-bg::before {
+    content: "";
+    position: fixed;
+    width: 40vw;
+    height: 40vw;
+    max-width: 700px;
+    max-height: 700px;
+    top: -15%;
+    right: 5%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(5, 150, 105, 0.2) 45%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(130px);
+    animation: blob4 24s ease-in-out infinite;
+}
+
+/* Blob 5 — turquoise, far left */
+@keyframes blob5 {
+    0%   { transform: translate(0, 0) scale(1);       opacity: 0.3; }
+    40%  { transform: translate(20%, -15%) scale(1.15); opacity: 0.45; }
+    70%  { transform: translate(-10%, 10%) scale(0.85); opacity: 0.35; }
+    100% { transform: translate(0, 0) scale(1);        opacity: 0.3; }
+}
+
+.aurora-bg::after {
+    content: "";
+    position: fixed;
+    width: 35vw;
+    height: 35vw;
+    max-width: 650px;
+    max-height: 650px;
+    top: 20%;
+    left: -10%;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.35) 0%, rgba(20, 184, 166, 0.2) 45%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(140px);
+    animation: blob5 26s ease-in-out infinite;
+}
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+
+header[data-testid="stHeader"] {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* ================================================================
+   LAYOUT
+   ================================================================ */
+
+.block-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    padding-top: 3.5rem;
+    padding-bottom: 5rem;
+}
+
+/* ================================================================
+   TYPOGRAPHY
+   ================================================================ */
+
+h1, h2, h3, p, label, .stMarkdown { color: #ffffff; letter-spacing: 0; }
+
+.eyebrow {
+    color: #7b61ff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #a78bfa, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero {
+    text-align: center;
+    margin-top: 12vh;
+    margin-bottom: 5vh;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1,
+.result-hero h1,
+.running-shell h1,
+.form-shell h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 auto 24px;
+    max-width: 900px;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+.hero p,
+.result-hero p,
+.running-shell p {
+    color: #9ca3af;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ================================================================
+   GLASS CARDS — frosted glass with refraction borders
+   ================================================================ */
+
+.quiet-card,
+.form-shell,
+.running-shell,
+.report-panel,
+.metric-card {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 28px;
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 0 20px rgba(255, 255, 255, 0.02),
+        0 8px 32px rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 1;
+}
+
+.quiet-card { padding: 28px; }
+
+/* ================================================================
+   FLOW ROWS (landing steps)
+   ================================================================ */
+
+.flow-row {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 4px 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.flow-row:last-child { border-bottom: 0; }
+
+.flow-row span {
+    grid-row: span 2;
+    width: 34px; height: 34px;
+    display: grid; place-items: center;
+    color: #000;
+    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+    border-radius: 999px;
+    font-weight: 800;
+}
+.flow-row b { color: #ffffff; font-size: 1rem; }
+.flow-row p { margin: 0; color: #9ca3af; line-height: 1.55; }
+
+/* ================================================================
+   FORM SHELL
+   ================================================================ */
+
+.form-shell {
+    max-width: 760px;
+    margin: 22px auto 0;
+    padding: clamp(24px, 5vw, 54px);
+}
+
+.step-label {
+    color: #7b61ff;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.brief-summary {
+    margin: 18px 0;
+    color: #9ca3af;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 14px 16px;
+}
+
+/* ================================================================
+   RUNNING SHELL
+   ================================================================ */
+
+.running-shell {
+    padding: clamp(24px, 5vw, 48px);
+    margin-bottom: 20px;
+}
+
+.console {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    color: #ffffff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    padding: 18px;
+    max-height: 360px;
+    overflow: auto;
+}
+.console span { color: #a78bfa; font-weight: 800; margin-right: 10px; }
+
+/* ================================================================
+   RESULTS
+   ================================================================ */
+
+.result-hero { padding: 12px 0 24px; }
+
+.metric-card { min-height: 138px; padding: 18px; margin-bottom: 14px; }
+.metric-label { color: #9ca3af; text-transform: uppercase; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.06em; }
+.metric-value { color: #ffffff; font-size: 2.35rem; font-weight: 800; line-height: 1; margin: 12px 0; }
+.metric-note  { color: #9ca3af; font-size: 0.88rem; }
+
+.report-panel { padding: 24px 28px 10px; margin-bottom: 14px; }
+.report-panel h2 { margin: 0; font-size: 2rem; }
+
+div[data-testid="stVerticalBlockBorderWrapper"] { border-color: transparent; }
+
+/* ================================================================
+   INPUTS — glass feel, NO red outlines
+   ================================================================ */
+
+textarea,
+input,
+div[data-baseweb="select"] > div,
+div[data-baseweb="base-input"] {
+    background: rgba(255, 255, 255, 0.04) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 14px !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Kill ALL red/default focus outlines everywhere */
+*:focus,
+*:focus-visible,
+input:focus,
+textarea:focus,
+[data-baseweb] *:focus {
+    outline: none !important;
+    outline-color: transparent !important;
+    outline-width: 0 !important;
+}
+
+textarea:focus,
+input:focus,
+div[data-baseweb="input"]:focus-within,
+div[data-baseweb="base-input"]:focus-within {
+    border-color: rgba(139, 92, 246, 0.7) !important;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25), inset 0 2px 4px rgba(0,0,0,0.3) !important;
+}
+
+/* Streamlit warning/error containers — make them blend */
+div[data-testid="stAlert"] {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 14px !important;
+    color: #ffffff !important;
+}
+
+div[data-testid="stWidgetLabel"] p,
+label,
+.stCaption {
+    color: #9ca3af !important;
+    font-weight: 600;
+}
+
+/* ================================================================
+   BUTTONS — gradient primary, glass secondary
+   ================================================================ */
+
+button[kind="primary"],
+div.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    border-radius: 14px !important;
+    font-weight: 800 !important;
+    padding: 14px 28px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+button[kind="primary"]:hover,
+div.stButton > button[kind="primary"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6), inset 0 1px 0 rgba(255,255,255,0.2) !important;
+    filter: brightness(1.15) !important;
+}
+
+div.stButton > button,
+button {
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-top: 1px solid rgba(255,255,255,0.15) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    transition: all 0.3s ease !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+div.stDownloadButton > button {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: #ffffff !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+}
+
+/* ================================================================
+   TABS
+   ================================================================ */
+
+.stTabs [data-baseweb="tab-list"] {
+    gap: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 14px 14px 0 0;
+    color: #9ca3af;
+    padding: 12px 18px;
+    background: transparent;
+}
+
+.stTabs [aria-selected="true"] {
+    color: #ffffff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-bottom-color: transparent;
+}
+
+/* ================================================================
+   SECONDARY BUTTONS
+   ================================================================ */
+
+button[data-testid="stBaseButton-secondary"] {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+button[data-testid="stBaseButton-secondary"]:hover:not(:disabled) {
+    border-color: #8b5cf6 !important;
+}
+
+button[data-testid="stBaseButton-secondary"]:disabled {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    border-color: transparent !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+div[data-testid="stRadio"] label { color: #ffffff !important; }
+hr { border-color: rgba(255,255,255,0.06); }
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 780px) {
+    .block-container { padding-top: 2rem; }
+    .hero h1,
+    .result-hero h1,
+    .running-shell h1,
+    .form-shell h1 { font-size: 2.2rem; }
+    .quiet-card { margin-top: 24px; }
+}
