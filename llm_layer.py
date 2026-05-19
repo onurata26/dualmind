@@ -277,38 +277,73 @@ def generate_local_fallback(prompt: str, system_prompt: str = "") -> str:
     elif "reject" in prompt_lower or "reddeder" in prompt_lower:
         decision = "Reject"
 
-    # Diverse local fallback pools based on decision
+    # Dynamic combinatorial generator to prevent repeated sentences for 100+ agents
     if decision == "Buy":
-        pool = [
-            "Bence fiyatına göre sunduğu değer harika, maaş yatar yatmaz deneyeceğim.",
-            "Kesinlikle benim yaşam tarzıma uygun, eşim de beğenecektir.",
-            "Uzun zamandır böyle pratik bir çözüm arıyordum, hemen alırım.",
-            "Kalitesi ortada, güvendiğim bir marka olduğu için hiç düşünmeden alıyorum.",
-            "Hem ekonomik hem de ihtiyaçlarımı tam karşılıyor, kaçırmam."
+        openings = ["Bence", "Açıkçası", "Şunu söyleyebilirim ki", "Gerçekten", "Dürüst olmak gerekirse"]
+        middles = [
+            "fiyatına göre sunduğu değer harika",
+            "benim yaşam tarzıma tam olarak uygun",
+            "uzun zamandır böyle pratik bir çözüm arıyordum",
+            "kalitesi ortada ve güven veriyor",
+            "hem ekonomik hem de ihtiyaçlarımı eksiksiz karşılıyor"
+        ]
+        closings = [
+            "maaş yatar yatmaz deneyeceğim.",
+            "eşim de kesinlikle beğenecektir.",
+            "hiç düşünmeden alıyorum.",
+            "ilk fırsatta sipariş vereceğim.",
+            "bu fırsatı kaçırmam."
         ]
     elif decision == "Skeptical Buy":
-        pool = [
-            "Fikre sıcak bakıyorum ama önce küçük bir deneme paketi alıp kalitesini görmem lazım.",
-            "İlgi çekici duruyor ancak sosyal medyada veya çevremde kullanan birini görsem daha rahat alırım.",
-            "Fiyatı bütçemi biraz zorluyor, belki bir sonraki maaş gününde indirim yakalarsam alabilirim.",
-            "Açıkçası vaatleri güzel ama uzun vadede dediklerini sağlayabileceğinden emin değilim.",
-            "İhtiyacım var, yine de diğer markalarla fiyat karşılaştırması yapmadan doğrudan sepete atmam."
+        openings = ["Fikre sıcak bakıyorum ama", "İlgi çekici duruyor ancak", "Şu an fena durmuyor yine de", "Vaatleri güzel fakat", "Aslında ihtiyacım var ancak"]
+        middles = [
+            "önce küçük bir deneme paketi alıp kalitesini görmem lazım",
+            "sosyal medyada veya çevremde kullanan birini görsem daha rahat alırım",
+            "fiyatı bütçemi biraz zorluyor, belki indirim yakalarsam alabilirim",
+            "uzun vadede dediklerini sağlayabileceğinden emin değilim",
+            "diğer markalarla fiyat karşılaştırması yapmadan doğrudan sepete atmam"
+        ]
+        closings = [
+            "bakalım zaman ne gösterecek.",
+            "şimdilik sadece takipte kalacağım.",
+            "biraz daha araştırma yapmam şart.",
+            "yorumları okuduktan sonra net kararımı veririm.",
+            "deneyip göreceğiz."
         ]
     elif decision == "Reject":
-        pool = [
-            "Benim günlük rutinimde buna hiç yer yok, gereksiz bir harcama olurdu.",
-            "Fiyatı sunduğu özelliğe göre inanılmaz uçuk, asla bu parayı vermem.",
-            "Bu markayla daha önce kötü bir deneyimim oldu, ne kampanya yapsalar almam.",
-            "İçeriği veya kalitesi beni hiç ikna etmedi, bildiğimden şaşmam.",
-            "Benim yaşım ve mesleğim gereği bu tarz ürünler hiç ilgimi çekmiyor."
+        openings = ["Hiç bana göre değil,", "Açıkçası söylemek gerekirse", "Ne yalan söyleyeyim", "Şahsi fikrim,", "Benim açımdan"]
+        middles = [
+            "günlük rutinimde buna hiç yer yok, gereksiz bir harcama olurdu",
+            "fiyatı sunduğu özelliğe göre inanılmaz uçuk, asla bu parayı vermem",
+            "bu markayla daha önce kötü bir deneyimim oldu, ne kampanya yapsalar almam",
+            "içeriği veya kalitesi beni hiç ikna etmedi, bildiğimden şaşmam",
+            "yaşım ve mesleğim gereği bu tarz ürünler hiç ilgimi çekmiyor"
         ]
-    else:  # Ignore / Pas Geçer
-        pool = [
-            "Reklamı görsem muhtemelen geçerdim, bana hitap eden bir tarafı yok.",
-            "İhtiyacım olmayan bir şey, ilgilenmiyorum bile.",
-            "Eminim birileri için iyidir ama benlik değil, hayatıma bir artısı olmaz.",
-            "Bu aralar başka önceliklerim var, böyle şeylere ayıracak bütçem ve vaktim yok.",
-            "Çok sıradan geldi, dönüp tekrar bakma ihtiyacı hissetmedim."
+        closings = [
+            "o yüzden pas geçiyorum.",
+            "bedava verseler kullanmam.",
+            "buna ayıracak bütçem yok.",
+            "hiç uğraşmaya değmez.",
+            "alternatiflere yönelirim."
         ]
-        
-    return random.choice(pool)
+    else:  # Ignore
+        openings = ["Açık konuşmak gerekirse", "Bana sorarsanız", "Doğrusunu isterseniz", "Açıkçası", "Afişi görsem"]
+        middles = [
+            "muhtemelen geçerdim, bana hitap eden bir tarafı yok",
+            "ihtiyacım olmayan bir şey, ilgilenmiyorum bile",
+            "eminim birileri için iyidir ama benlik değil, hayatıma bir artısı olmaz",
+            "bu aralar başka önceliklerim var, böyle şeylere ayıracak vaktim yok",
+            "çok sıradan geldi, dönüp tekrar bakma ihtiyacı hissetmedim"
+        ]
+        closings = [
+            "o yüzden dikkate almadım.",
+            "benlik bir durum yok.",
+            "kısacası umrumda değil.",
+            "zamanımı buna harcamam.",
+            "hiç dikkatimi çekmedi."
+        ]
+
+    o = random.choice(openings)
+    m = random.choice(middles)
+    c = random.choice(closings)
+    return f"{o} {m}, {c}"
