@@ -42,6 +42,7 @@ cd dualmind
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+cp .env.example .env   # Demo için gerekli; .env yoksa analiz hata verir
 python3 -m streamlit run app.py
 ```
 
@@ -51,6 +52,14 @@ Bu makinede standart portlar doluysa farklı portla çalıştır:
 
 ```bash
 python3 -m streamlit run app.py --server.port 8617
+```
+
+### Docker ile Çalıştırma
+
+```bash
+cp .env.example .env   # Önce .env oluştur
+docker build -t dualmind .
+docker run -p 8501:8501 --env-file .env dualmind
 ```
 
 ## Akış
