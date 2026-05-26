@@ -1,0 +1,74 @@
+{
+  "Ege": {
+    "18-30": {
+      "loyalty_category": "Fickle",
+      "purchasing_triggers": [
+        "aesthetic_appeal",
+        "social_bonding_potential",
+        "eco_friendly_claims",
+        "relatable_humor"
+      ],
+      "main_objections": [
+        "overpriced_for_show",
+        "excessive_plastic_packaging",
+        "corporatized_unauthentic_vibe",
+        "lack_of_local_sourcing"
+      ],
+      "brand_values_alignment_weight": 0.85,
+      "communication_style_preference": "Casual, transparent, humble, artistic, or witty. They detest high-pressure sales pitches and overly corporate jargon."
+    },
+    "31-45": {
+      "loyalty_category": "Moderate-Loyal",
+      "purchasing_triggers": [
+        "proven_quality_or_craftsmanship",
+        "health_benefits",
+        "sustainability_certifications",
+        "support_for_local_growers"
+      ],
+      "main_objections": [
+        "lack_of_transparency_in_ingredients",
+        "greenwashing_without_proof",
+        "poor_quality_materials_or_beans",
+        "overly_complex_loyalty_schemes"
+      ],
+      "brand_values_alignment_weight": 0.75,
+      "communication_style_preference": "Informative, mature, direct, sincere. They appreciate stories about the origin of the product, farming techniques, and craft details."
+    }
+  },
+  "Marmara": {
+    "18-30": {
+      "loyalty_category": "Trend-Loyal",
+      "purchasing_triggers": [
+        "high_status_association",
+        "viral_popularity",
+        "convenience_of_purchase",
+        "visually_striking_packaging"
+      ],
+      "main_objections": [
+        "slow_shipping_or_delivery",
+        "hard_to_order_online",
+        "not_photogenic_or_shareable",
+        "out_of_stock_frequently"
+      ],
+      "brand_values_alignment_weight": 0.40,
+      "communication_style_preference": "Energetic, hype-inducing, visually heavy, fast-paced, referencing current internet memes and urban youth culture."
+    },
+    "31-45": {
+      "loyalty_category": "Brand-Loyal",
+      "purchasing_triggers": [
+        "prestige_recognition",
+        "flawless_consistent_service",
+        "exclusive_rewards",
+        "time_saving_features"
+      ],
+      "main_objections": [
+        "loss_of_status_association",
+        "inconsistent_service_quality",
+        "lack_of_premium_packaging_or_delivery",
+        "difficult_refunds"
+      ],
+      "brand_values_alignment_weight": 0.50,
+      "communication_style_preference": "Professional, elegant, prestigious, respectful, clear, and value-adding. Focuses on exclusivity, high quality, and saving their time."
+    }
+  }
+}

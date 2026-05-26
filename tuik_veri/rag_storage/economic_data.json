@@ -1,0 +1,62 @@
+{
+  "Ege": {
+    "18-30": {
+      "avg_monthly_disposable_income_lira": 18000,
+      "income_tier": "Medium-Low",
+      "inflation_concern_level": "High",
+      "price_sensitivity_index": 0.78,
+      "discretionary_spend_allocation": {
+        "food_beverage": 35.0,
+        "apparel_fashion": 20.0,
+        "entertainment_socializing": 25.0,
+        "technology_gadgets": 10.0,
+        "saving_investing": 10.0
+      },
+      "spending_sentiments": "Cautious but willing to splurge on high-value social experiences. Aegean students love spending time in local third-wave cafes; coffee is considered a social entry ticket rather than just a drink."
+    },
+    "31-45": {
+      "avg_monthly_disposable_income_lira": 45000,
+      "income_tier": "Medium-High",
+      "inflation_concern_level": "Medium-High",
+      "price_sensitivity_index": 0.52,
+      "discretionary_spend_allocation": {
+        "food_beverage": 25.0,
+        "family_education": 30.0,
+        "travel_leisure": 20.0,
+        "home_decor": 10.0,
+        "saving_investing": 15.0
+      },
+      "spending_sentiments": "Value-oriented. They look for quality-price ratios and organic/local certifications. Prefer paying premium if it guarantees ecological sustainability or health benefits."
+    }
+  },
+  "Marmara": {
+    "18-30": {
+      "avg_monthly_disposable_income_lira": 22000,
+      "income_tier": "Medium",
+      "inflation_concern_level": "High",
+      "price_sensitivity_index": 0.70,
+      "discretionary_spend_allocation": {
+        "food_beverage": 30.0,
+        "apparel_fashion": 25.0,
+        "entertainment_socializing": 22.0,
+        "technology_gadgets": 15.0,
+        "saving_investing": 8.0
+      },
+      "spending_sentiments": "Trend-driven spender. Highly prone to impulsive purchases fueled by Instagram and TikTok trends. Will skip meals to afford the latest sneakers or premium branded coffee that conveys status."
+    },
+    "31-45": {
+      "avg_monthly_disposable_income_lira": 65000,
+      "income_tier": "High",
+      "inflation_concern_level": "Medium",
+      "price_sensitivity_index": 0.40,
+      "discretionary_spend_allocation": {
+        "food_beverage": 20.0,
+        "family_education": 35.0,
+        "travel_luxury": 20.0,
+        "investments_savings": 15.0,
+        "technology_gadgets": 10.0
+      },
+      "spending_sentiments": "Status and convenience buyer. Premium brand loyalty is very strong. High willingness to pay for premium services (express shipping, VIP club memberships, imported single-origin specialty coffees)."
+    }
+  }
+}

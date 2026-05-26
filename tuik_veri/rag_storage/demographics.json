@@ -1,0 +1,100 @@
+{
+  "Ege": {
+    "18-30": {
+      "cohort": "Aegean Young Creatives & Students",
+      "population_percentage": 22.4,
+      "education_levels": {
+        "university_or_higher": 65.0,
+        "high_school": 30.0,
+        "other": 5.0
+      },
+      "household_size_avg": 2.4,
+      "employment_status": {
+        "student": 40.0,
+        "employed_full_time": 35.0,
+        "freelance_gig": 15.0,
+        "seeking_employment": 10.0
+      },
+      "core_values": [
+        "environmentalism",
+        "outdoor_lifestyle",
+        "social_freedom",
+        "work_life_balance",
+        "local_pride"
+      ],
+      "personality_archetype": "Chill, socially conscious, values aesthetics and leisure time in Izmir, Mugla, or Aydin."
+    },
+    "31-45": {
+      "cohort": "Aegean Progressive Professionals",
+      "population_percentage": 28.1,
+      "education_levels": {
+        "university_or_higher": 72.0,
+        "high_school": 23.0,
+        "other": 5.0
+      },
+      "household_size_avg": 2.9,
+      "employment_status": {
+        "employed_full_time": 75.0,
+        "entrepreneur_business_owner": 18.0,
+        "other": 7.0
+      },
+      "core_values": [
+        "family_wellness",
+        "sustainability",
+        "culinary_experience",
+        "intellectual_growth",
+        "quality_of_life"
+      ],
+      "personality_archetype": "Mid-career professionals focusing on slow living, organic food, craft beverages, and escaping the big city rush."
+    }
+  },
+  "Marmara": {
+    "18-30": {
+      "cohort": "Metropolitan Hustlers & Gen-Z",
+      "population_percentage": 26.8,
+      "education_levels": {
+        "university_or_higher": 58.0,
+        "high_school": 35.0,
+        "other": 7.0
+      },
+      "household_size_avg": 2.8,
+      "employment_status": {
+        "student": 30.0,
+        "employed_full_time": 48.0,
+        "freelance_gig": 12.0,
+        "seeking_employment": 10.0
+      },
+      "core_values": [
+        "career_success",
+        "status_symbols",
+        "speed_efficiency",
+        "global_trends",
+        "digital_first"
+      ],
+      "personality_archetype": "Fast-paced Istanbul youth, highly competitive, trend-chasing, constantly connected, caffeine-driven."
+    },
+    "31-45": {
+      "cohort": "Urban Elite & Corporate Warriors",
+      "population_percentage": 30.5,
+      "education_levels": {
+        "university_or_higher": 80.0,
+        "high_school": 17.0,
+        "other": 3.0
+      },
+      "household_size_avg": 3.1,
+      "employment_status": {
+        "employed_full_time": 82.0,
+        "entrepreneur_business_owner": 14.0,
+        "other": 4.0
+      },
+      "core_values": [
+        "prestige_recognition",
+        "financial_security",
+        "premium_convenience",
+        "child_education",
+        "brand_authority"
+      ],
+      "personality_archetype": "High-earning white-collar professionals, stressed, seeking premium escapes, valuing luxury brands and seamless digital services."
+    }
+  }
+}

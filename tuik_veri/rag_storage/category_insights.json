@@ -1,0 +1,56 @@
+{
+  "coffee": {
+    "Ege": {
+      "18-30": {
+        "consumption_frequency": "1-2 times daily",
+        "preferred_styles": ["Cold Brew", "Iced Latte", "V60 / Chemex Specialty Filter", "Frappe"],
+        "key_drivers": ["aesthetic_cafe_ambiance", "social_space", "alternative_milk_options", "affordable_pricing"],
+        "regional_peculiarities": "High preference for sitting outdoors for hours. Cafe-hopping is a popular hobby. Strongly support local Izmir roasters (e.g. Awake, Coffeetopia, local boutique cafes) over massive multinational chains like Starbucks.",
+        "seasonal_shift": "Strong transition to cold iced coffees starting from April through November."
+      },
+      "31-45": {
+        "consumption_frequency": "2-3 times daily",
+        "preferred_styles": ["Traditional Turkish Coffee (medium/double)", "Espresso", "Flat White", "Standard Filter Coffee"],
+        "key_drivers": ["bean_origin_quality", "organic_roasting", "acidic_profiles", "supporting_fair_trade"],
+        "regional_peculiarities": "High affinity for Turkish coffee served with local mastic gum (damla sakızlı) or local Aegean double-roasted beans. Appreciate the ritual of coffee, slow conversations, and outdoor garden cafes. Price is secondary to bean quality and clean roasting practices.",
+        "seasonal_shift": "Appreciate specialty warm brews year-round but drink iced pour-overs in peak summer."
+      }
+    },
+    "Marmara": {
+      "18-30": {
+        "consumption_frequency": "2-3 times daily",
+        "preferred_styles": ["Iced Americano", "Sweet/Syruped Iced Lattes (Caramel, Vanilla)", "Spanish Latte", "Cold Brew"],
+        "key_drivers": ["instagrammable_packaging", "fast_wifi_and_charging_spots", "brand_popularity", "caffeine_content"],
+        "regional_peculiarities": "Coffee is primarily functional for studying/working or a status symbol to be carried around. High density of chain cafes (Starbucks, Espressolab, Kahve Dünyası). High adoption of mobile preorder apps.",
+        "seasonal_shift": "Constant demand for iced and blended sweet drinks; quick conversion based on social media viral menus."
+      },
+      "31-45": {
+        "consumption_frequency": "3+ times daily",
+        "preferred_styles": ["Double Espresso", "Macchiato", "Flat White", "Single-Origin Pour-over"],
+        "key_drivers": ["speed_and_convenience", "flawless_consistent_taste", "premium_meeting_spaces", "executive_image"],
+        "regional_peculiarities": "Corporate warriors drinking high-caffeine espresso-based drinks to sustain long hours. They use high-end home espresso machines (Nespresso, Sage, Delonghi) and appreciate specialty beans delivered via premium subscriptions.",
+        "seasonal_shift": "Consistent hot beverage consumption; iced beverages used as quick mid-afternoon refreshers."
+      }
+    }
+  },
+  "apparel": {
+    "Ege": {
+      "18-30": {
+        "consumption_frequency": "1-2 times monthly",
+        "preferred_styles": ["Casual / Bohemian", "Oversized Streetwear", "Linen and Cotton basics"],
+        "key_drivers": ["comfort_in_heat", "uniqueness", "sustainable_fabrics", "vintage_retro_vibe"],
+        "regional_peculiarities": "Aegean youth prefer light colors, loose fits, and breathable organic fabrics. Vintage shopping and thrift stores are highly popular.",
+        "seasonal_shift": "Extended summer wear; heavy winter clothing is rarely purchased."
+      }
+    },
+    "Marmara": {
+      "18-30": {
+        "consumption_frequency": "2-3 times monthly",
+        "preferred_styles": ["Hype-streetwear", "Corporate-casual", "Fast-fashion trend outfits"],
+        "key_drivers": ["brand_status", "matching_instagram_trends", "express_delivery", "flexible_return_policies"],
+        "regional_peculiarities": "High emphasis on matching global trends immediately. Brand logos are visible. Highly competitive dressing for social events and workspace environments.",
+        "seasonal_shift": "Clear 4-season wardrobe transitions with significant spending on autumn/winter jackets and boots."
+      }
+    }
+  }
+}

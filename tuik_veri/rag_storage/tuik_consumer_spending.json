@@ -1,0 +1,86 @@
+{
+  "Ege": {
+    "18-30": {
+      "coicop_expenditure_shares_pct": {
+        "01_food_beverages": 24.2,
+        "02_tobacco_alcohol": 4.5,
+        "03_clothing_footwear": 6.8,
+        "04_housing_water_energy": 22.1,
+        "05_furnishings_household": 5.4,
+        "06_health": 2.1,
+        "07_transportation": 15.6,
+        "08_communication": 3.8,
+        "09_recreation_culture": 3.2,
+        "10_education": 1.5,
+        "11_restaurants_hotels": 8.4,
+        "12_miscellaneous": 2.4
+      },
+      "category_spending_share_index": 1.15,
+      "internet_usage_penetration_pct": 94.2,
+      "online_purchase_rate_3months_pct": 68.5,
+      "card_payment_preference_rate": 0.82
+    },
+    "31-45": {
+      "coicop_expenditure_shares_pct": {
+        "01_food_beverages": 21.8,
+        "02_tobacco_alcohol": 3.8,
+        "03_clothing_footwear": 5.9,
+        "04_housing_water_energy": 24.5,
+        "05_furnishings_household": 6.2,
+        "06_health": 3.2,
+        "07_transportation": 16.4,
+        "08_communication": 3.2,
+        "09_recreation_culture": 2.8,
+        "10_education": 3.8,
+        "11_restaurants_hotels": 6.1,
+        "12_miscellaneous": 3.1
+      },
+      "category_spending_share_index": 0.95,
+      "internet_usage_penetration_pct": 89.6,
+      "online_purchase_rate_3months_pct": 52.4,
+      "card_payment_preference_rate": 0.74
+    }
+  },
+  "Marmara": {
+    "18-30": {
+      "coicop_expenditure_shares_pct": {
+        "01_food_beverages": 20.5,
+        "02_tobacco_alcohol": 4.8,
+        "03_clothing_footwear": 7.5,
+        "04_housing_water_energy": 26.2,
+        "05_furnishings_household": 4.8,
+        "06_health": 2.3,
+        "07_transportation": 14.2,
+        "08_communication": 4.1,
+        "09_recreation_culture": 4.2,
+        "10_education": 2.1,
+        "11_restaurants_hotels": 11.5,
+        "12_miscellaneous": 2.8
+      },
+      "category_spending_share_index": 1.42,
+      "internet_usage_penetration_pct": 96.8,
+      "online_purchase_rate_3months_pct": 74.2,
+      "card_payment_preference_rate": 0.88
+    },
+    "31-45": {
+      "coicop_expenditure_shares_pct": {
+        "01_food_beverages": 18.2,
+        "02_tobacco_alcohol": 3.5,
+        "03_clothing_footwear": 6.4,
+        "04_housing_water_energy": 28.5,
+        "05_furnishings_household": 5.8,
+        "06_health": 3.8,
+        "07_transportation": 15.1,
+        "08_communication": 3.5,
+        "09_recreation_culture": 3.6,
+        "10_education": 5.4,
+        "11_restaurants_hotels": 7.8,
+        "12_miscellaneous": 3.4
+      },
+      "category_spending_share_index": 1.10,
+      "internet_usage_penetration_pct": 91.2,
+      "online_purchase_rate_3months_pct": 61.5,
+      "card_payment_preference_rate": 0.81
+    }
+  }
+}

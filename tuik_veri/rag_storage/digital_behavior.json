@@ -1,0 +1,54 @@
+{
+  "Ege": {
+    "18-30": {
+      "avg_screen_time_hours": 6.8,
+      "primary_social_platforms": ["Instagram", "YouTube", "TikTok", "Spotify", "Pinterest"],
+      "influencer_trust_index": 0.58,
+      "preferred_content_types": ["short_video", "memes", "music_podcasts", "aesthetic_photos"],
+      "ad_receptivity_score": 0.45,
+      "ad_blocker_usage_percentage": 55.0,
+      "ecommerce_habits": {
+        "preferred_platforms": ["Trendyol", "Hepsiburada", "Amazon.com.tr", "local_instagram_shops"],
+        "purchase_drivers": ["peer_reviews", "eco_friendly_badges", "discounts"]
+      }
+    },
+    "31-45": {
+      "avg_screen_time_hours": 4.2,
+      "primary_social_platforms": ["Instagram", "LinkedIn", "YouTube", "Twitter/X", "Spotify"],
+      "influencer_trust_index": 0.40,
+      "preferred_content_types": ["educational_articles", "how_to_videos", "reviews", "professional_networking"],
+      "ad_receptivity_score": 0.32,
+      "ad_blocker_usage_percentage": 40.0,
+      "ecommerce_habits": {
+        "preferred_platforms": ["Amazon.com.tr", "Trendyol", "Getir", "Specialty_eShops"],
+        "purchase_drivers": ["detailed_specs", "warranty", "customer_service", "same_day_delivery"]
+      }
+    }
+  },
+  "Marmara": {
+    "18-30": {
+      "avg_screen_time_hours": 8.2,
+      "primary_social_platforms": ["TikTok", "Instagram", "YouTube", "Twitter/X", "Twitch", "Discord"],
+      "influencer_trust_index": 0.72,
+      "preferred_content_types": ["viral_trends", "live_streams", "short_unboxing", "interactive_challenges"],
+      "ad_receptivity_score": 0.65,
+      "ad_blocker_usage_percentage": 62.0,
+      "ecommerce_habits": {
+        "preferred_platforms": ["Trendyol", "Amazon.com.tr", "Hepsiburada", "Instagram_Checkout"],
+        "purchase_drivers": ["viral_trends", "influencer_promos", "fast_shipping", "buy_now_pay_later"]
+      }
+    },
+    "31-45": {
+      "avg_screen_time_hours": 5.5,
+      "primary_social_platforms": ["LinkedIn", "Twitter/X", "Instagram", "YouTube", "Substack"],
+      "influencer_trust_index": 0.35,
+      "preferred_content_types": ["industry_news", "podcast_episodes", "high_quality_video_reviews"],
+      "ad_receptivity_score": 0.28,
+      "ad_blocker_usage_percentage": 45.0,
+      "ecommerce_habits": {
+        "preferred_platforms": ["Amazon.com.tr", "Macrocenter_online", "Hepsiburada_Premium", "GetirExtra"],
+        "purchase_drivers": ["premium_convenience", "loyalty_points", "trustworthiness", "curated_options"]
+      }
+    }
+  }
+}

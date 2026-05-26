@@ -1,0 +1,58 @@
+{
+  "Ege": {
+    "18-30": {
+      "region_code": "TR31",
+      "cohort_population_adnks": 1145220,
+      "regional_population_share_pct": 21.8,
+      "labor_force_participation_rate": 54.2,
+      "unemployment_rate_tuik": 11.5,
+      "education_distribution": {
+        "higher_education_grad_rate": 0.425,
+        "high_school_grad_rate": 0.442,
+        "basic_education_rate": 0.133
+      },
+      "household_size_avg": 2.6
+    },
+    "31-45": {
+      "region_code": "TR31",
+      "cohort_population_adnks": 1395400,
+      "regional_population_share_pct": 26.5,
+      "labor_force_participation_rate": 81.3,
+      "unemployment_rate_tuik": 8.2,
+      "education_distribution": {
+        "higher_education_grad_rate": 0.380,
+        "high_school_grad_rate": 0.410,
+        "basic_education_rate": 0.210
+      },
+      "household_size_avg": 3.1
+    }
+  },
+  "Marmara": {
+    "18-30": {
+      "region_code": "TR10",
+      "cohort_population_adnks": 3892150,
+      "regional_population_share_pct": 24.3,
+      "labor_force_participation_rate": 58.7,
+      "unemployment_rate_tuik": 12.8,
+      "education_distribution": {
+        "higher_education_grad_rate": 0.468,
+        "high_school_grad_rate": 0.412,
+        "basic_education_rate": 0.120
+      },
+      "household_size_avg": 2.9
+    },
+    "31-45": {
+      "region_code": "TR10",
+      "cohort_population_adnks": 4652300,
+      "regional_population_share_pct": 29.1,
+      "labor_force_participation_rate": 84.6,
+      "unemployment_rate_tuik": 7.8,
+      "education_distribution": {
+        "higher_education_grad_rate": 0.415,
+        "high_school_grad_rate": 0.395,
+        "basic_education_rate": 0.190
+      },
+      "household_size_avg": 3.2
+    }
+  }
+}

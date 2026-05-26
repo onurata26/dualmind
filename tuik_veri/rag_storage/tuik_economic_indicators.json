@@ -1,0 +1,42 @@
+{
+  "Ege": {
+    "18-30": {
+      "avg_annual_disposable_income_lira": 216000,
+      "regional_purchasing_power_index": 96.5,
+      "gini_coefficient_regional": 0.382,
+      "poverty_rate_relative_pct": 13.8,
+      "consumer_confidence_index": 78.4,
+      "regional_inflation_rate_cpi": 62.4,
+      "price_sensitivity_index_normalized": 0.76
+    },
+    "31-45": {
+      "avg_annual_disposable_income_lira": 540000,
+      "regional_purchasing_power_index": 96.5,
+      "gini_coefficient_regional": 0.382,
+      "poverty_rate_relative_pct": 11.2,
+      "consumer_confidence_index": 80.2,
+      "regional_inflation_rate_cpi": 62.4,
+      "price_sensitivity_index_normalized": 0.52
+    }
+  },
+  "Marmara": {
+    "18-30": {
+      "avg_annual_disposable_income_lira": 264000,
+      "regional_purchasing_power_index": 114.2,
+      "gini_coefficient_regional": 0.418,
+      "poverty_rate_relative_pct": 15.2,
+      "consumer_confidence_index": 74.8,
+      "regional_inflation_rate_cpi": 68.6,
+      "price_sensitivity_index_normalized": 0.68
+    },
+    "31-45": {
+      "avg_annual_disposable_income_lira": 780000,
+      "regional_purchasing_power_index": 114.2,
+      "gini_coefficient_regional": 0.418,
+      "poverty_rate_relative_pct": 10.5,
+      "consumer_confidence_index": 76.5,
+      "regional_inflation_rate_cpi": 68.6,
+      "price_sensitivity_index_normalized": 0.38
+    }
+  }
+}
