@@ -1,3 +1,4 @@
+import sys
 import requests
 from bs4 import BeautifulSoup
 import urllib.parse
@@ -64,7 +65,7 @@ def search_duckduckgo(query, max_results=10):
                 
         return results
     except Exception as e:
-        print(f"Error searching DuckDuckGo for query '{query}': {str(e)}")
+        print(file=sys.stderr, f"Error searching DuckDuckGo for query '{query}': {str(e)}")
         return []
 
 def search_brand_source(brand, source_domain, query_extra="", max_results=5):
@@ -78,8 +79,8 @@ def search_brand_source(brand, source_domain, query_extra="", max_results=5):
 
 if __name__ == "__main__":
     # Quick self test
-    print("Testing search_duckduckgo...")
+    print(file=sys.stderr, "Testing search_duckduckgo...")
     results = search_duckduckgo("site:pwc.com.tr perakende", max_results=2)
-    print(f"Found {len(results)} results:")
+    print(file=sys.stderr, f"Found {len(results)} results:")
     for r in results:
-        print(f"- {r['title']}: {r['url']}")
+        print(file=sys.stderr, f"- {r['title']}: {r['url']}")

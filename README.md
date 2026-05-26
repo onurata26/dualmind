@@ -37,8 +37,11 @@ Bu modda API/MCP hata verirse sistem durur.
 ## Çalıştırma
 
 ```bash
-cd "/Users/onurataoral/Desktop/agent üretici"
-python3 -m pip install -r requirements.txt
+git clone https://github.com/onurata26/dualmind.git
+cd dualmind
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 python3 -m streamlit run app.py
 ```
 

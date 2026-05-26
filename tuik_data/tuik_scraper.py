@@ -152,12 +152,12 @@ class TuikScraper:
 if __name__ == "__main__":
     # Standard CLI test run if executed directly
     if not PLAYWRIGHT_AVAILABLE:
-        print("Playwright is NOT installed. Run: pip install playwright && playwright install chromium")
+        print(file=sys.stderr, "Playwright is NOT installed. Run: pip install playwright && playwright install chromium")
     else:
-        print("Playwright detected! Testing TUIK live search for 'enflasyon'...")
+        print(file=sys.stderr, "Playwright detected! Testing TUIK live search for 'enflasyon'...")
         res = TuikScraper.scrape_search_results("enflasyon", limit=3)
-        print("Search Results:\n", json.dumps(res, indent=2, ensure_ascii=False))
+        print(file=sys.stderr, "Search Results:\n", json.dumps(res, indent=2, ensure_ascii=False))
         if res and "url" in res[0]:
-            print(f"\nTesting scraping on first result: {res[0]['url']}...")
+            print(file=sys.stderr, f"\nTesting scraping on first result: {res[0]['url']}...")
             data = TuikScraper.scrape_bulletin(res[0]['url'])
-            print("Bulletin Data:\n", json.dumps(data, indent=2, ensure_ascii=False)[:1000] + "...")
+            print(file=sys.stderr, "Bulletin Data:\n", json.dumps(data, indent=2, ensure_ascii=False)[:1000] + "...")

@@ -1,3 +1,4 @@
+import sys
 import os
 import json
 import requests
@@ -167,20 +168,20 @@ def synthesize_report(brand, category, region, raw_items):
     
     # Try Gemini first
     if gemini_key:
-        print("Using Gemini API for synthesis...")
+        print(file=sys.stderr, "Using Gemini API for synthesis...")
         report = synthesize_with_gemini(prompt, gemini_key)
         if report:
             return report
             
     # Try OpenAI second
     if openai_key:
-        print("Using OpenAI API for synthesis...")
+        print(file=sys.stderr, "Using OpenAI API for synthesis...")
         report = synthesize_with_openai(prompt, openai_key)
         if report:
             return report
             
     # Fallback to mock
-    print("Warning: No LLM API key configured or request failed. Generating a heuristic report.")
+    print(file=sys.stderr, "Warning: No LLM API key configured or request failed. Generating a heuristic report.")
     return generate_mock_report(brand, category, region, len(raw_items))
 
 def synthesize_with_gemini(prompt, api_key):
@@ -207,10 +208,10 @@ def synthesize_with_gemini(prompt, api_key):
             text_response = result['candidates'][0]['content']['parts'][0]['text']
             return json.loads(text_response.strip())
         else:
-            print(f"Gemini API Error: {response.status_code} - {response.text}")
+            print(file=sys.stderr, f"Gemini API Error: {response.status_code} - {response.text}")
             return None
     except Exception as e:
-        print(f"Exception during Gemini synthesis: {str(e)}")
+        print(file=sys.stderr, f"Exception during Gemini synthesis: {str(e)}")
         return None
 
 def synthesize_with_openai(prompt, api_key):
@@ -240,8 +241,8 @@ def synthesize_with_openai(prompt, api_key):
             text_response = result['choices'][0]['message']['content']
             return json.loads(text_response.strip())
         else:
-            print(f"OpenAI API Error: {response.status_code} - {response.text}")
+            print(file=sys.stderr, f"OpenAI API Error: {response.status_code} - {response.text}")
             return None
     except Exception as e:
-        print(f"Exception during OpenAI synthesis: {str(e)}")
+        print(file=sys.stderr, f"Exception during OpenAI synthesis: {str(e)}")
         return None

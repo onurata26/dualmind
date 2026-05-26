@@ -22,16 +22,16 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 DEFAULT_TUIK_SERVER_CANDIDATES = [
     os.getenv("MCP_TUIK_SERVER_PATH", ""),
-    os.path.join(BASE_DIR, "tuik_veri", "mcp_server.py"),
-    os.path.join(HOME_DIR, "Desktop", "tuik_veri", "mcp_server.py"),
-    os.path.join(HOME_DIR, "tuik_veri", "mcp_server.py"),
+    os.path.join(BASE_DIR, "tuik_data", "mcp_server.py"),
+    os.path.join(HOME_DIR, "Desktop", "tuik_data", "mcp_server.py"),
+    os.path.join(HOME_DIR, "tuik_data", "mcp_server.py"),
 ]
 
 DEFAULT_BRAND_SERVER_CANDIDATES = [
     os.getenv("MCP_BRAND_SERVER_PATH", ""),
-    os.path.join(BASE_DIR, "sektor ve haberler", "mcp_server.py"),
-    os.path.join(HOME_DIR, "Desktop", "sektor ve haberler", "mcp_server.py"),
-    os.path.join(HOME_DIR, "sektor ve haberler", "mcp_server.py"),
+    os.path.join(BASE_DIR, "sector_news", "mcp_server.py"),
+    os.path.join(HOME_DIR, "Desktop", "sector_news", "mcp_server.py"),
+    os.path.join(HOME_DIR, "sector_news", "mcp_server.py"),
 ]
 
 def env_bool(name: str, default: bool = True) -> bool:

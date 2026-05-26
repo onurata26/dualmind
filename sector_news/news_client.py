@@ -1,3 +1,4 @@
+import sys
 import os
 import requests
 from search_engine import search_duckduckgo
@@ -36,10 +37,10 @@ def fetch_news_api(brand, api_key, region="tr", max_results=10):
                 })
             return results
         else:
-            print(f"NewsAPI error (Status {response.status_code}): {response.text}")
+            print(file=sys.stderr, f"NewsAPI error (Status {response.status_code}): {response.text}")
             return []
     except Exception as e:
-        print(f"Error fetching from NewsAPI: {str(e)}")
+        print(file=sys.stderr, f"Error fetching from NewsAPI: {str(e)}")
         return []
 
 def fetch_news_fallback(brand, region="tr", max_results=10):
@@ -93,8 +94,8 @@ def get_news(brand, api_key=None, region="tr", max_results=10):
     return fetch_news_fallback(brand, region, max_results)
 
 if __name__ == "__main__":
-    print("Testing get_news...")
+    print(file=sys.stderr, "Testing get_news...")
     news = get_news("Starbucks", max_results=3)
-    print(f"Found {len(news)} news items:")
+    print(file=sys.stderr, f"Found {len(news)} news items:")
     for n in news:
-        print(f"- [{n.get('source')}] {n['title']} -> {n['url']}")
+        print(file=sys.stderr, f"- [{n.get('source')}] {n['title']} -> {n['url']}")

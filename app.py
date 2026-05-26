@@ -105,11 +105,17 @@ def back() -> None:
 
 
 def top_bar() -> None:
-    left, spacer = st.columns([1, 4], gap="small")
+    left, spacer, right = st.columns([1, 3, 1], gap="small")
     with left:
         if st.session_state.stage not in {"landing", "running"}:
             if st.button("Geri", key="back_button"):
                 back()
+    with right:
+        provider, _ = runtime_api_config()
+        strict_external = os.getenv("STRICT_EXTERNAL_DATA", "false").lower() in {"1", "true", "yes", "on"}
+        demo_mode = not strict_external or provider == "local"
+        if demo_mode:
+            st.markdown('<div style="color:#f59e0b; font-weight:bold; text-align:right;">⚠️ Demo Modu (Sentetik Veri)</div>', unsafe_allow_html=True)
 
 
 def parse_price(val: str, default: float = 100.0) -> float:

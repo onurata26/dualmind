@@ -1,3 +1,4 @@
+import sys
 import os
 import json
 from datetime import datetime
@@ -12,7 +13,7 @@ def gather_all_sources(brand, category, region="TR", sector=None):
     raw_data = []
     
     # 1. News API / Scraped News
-    print(f"[{brand}] Fetching news updates...")
+    print(file=sys.stderr, f"[{brand}] Fetching news updates...")
     news_key = os.environ.get("NEWS_API_KEY")
     news_items = get_news(brand, api_key=news_key, region=region, max_results=8)
     for n in news_items:
@@ -25,7 +26,7 @@ def gather_all_sources(brand, category, region="TR", sector=None):
         })
         
     # 2. PwC Turkey publications
-    print(f"[{brand}] Searching PwC Türkiye publications...")
+    print(file=sys.stderr, f"[{brand}] Searching PwC Türkiye publications...")
     pwc_query_extra = sector if sector else category
     pwc_items = search_brand_source(brand, "pwc.com.tr", query_extra=pwc_query_extra, max_results=5)
     for item in pwc_items:
@@ -38,7 +39,7 @@ def gather_all_sources(brand, category, region="TR", sector=None):
         })
         
     # 3. Deloitte Turkey reports (as a complementary sector report source)
-    print(f"[{brand}] Searching Deloitte Türkiye reports...")
+    print(file=sys.stderr, f"[{brand}] Searching Deloitte Türkiye reports...")
     deloitte_items = search_brand_source(brand, "deloitte.com/tr", query_extra=pwc_query_extra, max_results=3)
     for item in deloitte_items:
         raw_data.append({
@@ -50,7 +51,7 @@ def gather_all_sources(brand, category, region="TR", sector=None):
         })
         
     # 4. Ekşi Sözlük (Forum/Consumer perception)
-    print(f"[{brand}] Fetching Ekşi Sözlük sentiment...")
+    print(file=sys.stderr, f"[{brand}] Fetching Ekşi Sözlük sentiment...")
     eksi_items = search_brand_source(brand, "eksisozluk.com", query_extra="yorum", max_results=5)
     for item in eksi_items:
         raw_data.append({
@@ -62,7 +63,7 @@ def gather_all_sources(brand, category, region="TR", sector=None):
         })
         
     # 5. Şikayetvar (Complaints and satisfaction issues)
-    print(f"[{brand}] Fetching Şikayetvar consumer complaints...")
+    print(file=sys.stderr, f"[{brand}] Fetching Şikayetvar consumer complaints...")
     sikayet_items = search_brand_source(brand, "sikayetvar.com", query_extra="", max_results=5)
     for item in sikayet_items:
         raw_data.append({
@@ -74,7 +75,7 @@ def gather_all_sources(brand, category, region="TR", sector=None):
         })
         
     # 6. Reddit (Social media discussions)
-    print(f"[{brand}] Fetching Reddit discussions...")
+    print(file=sys.stderr, f"[{brand}] Fetching Reddit discussions...")
     reddit_items = search_brand_source(brand, "reddit.com", query_extra="turkey", max_results=3)
     for item in reddit_items:
         raw_data.append({
@@ -92,7 +93,7 @@ def generate_report_pipeline(brand, category, region="TR", sector=None, output_p
     Runs the full pipeline to gather data, synthesize, and save a brand report.
     """
     raw_data = gather_all_sources(brand, category, region, sector)
-    print(f"Total raw items gathered: {len(raw_data)}")
+    print(file=sys.stderr, f"Total raw items gathered: {len(raw_data)}")
     
     # Synthesize using LLM
     report = synthesize_report(brand, category, region, raw_data)
@@ -105,7 +106,7 @@ def generate_report_pipeline(brand, category, region="TR", sector=None, output_p
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
         
-    print(f"Report successfully saved to: {output_path}")
+    print(file=sys.stderr, f"Report successfully saved to: {output_path}")
     return report, output_path
 
 if __name__ == "__main__":
@@ -119,5 +120,5 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    print(f"Starting brand context gathering for {args.brand}...")
+    print(file=sys.stderr, f"Starting brand context gathering for {args.brand}...")
     generate_report_pipeline(args.brand, args.category, args.region, args.sector, args.out)
