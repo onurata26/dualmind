@@ -22,17 +22,17 @@ Bu ayarlar uygulamayı demo moduna alır.
 
 ## Gerçek API/MCP Moduna Dönmek
 
-Gerçek entegrasyon için `.env` şöyle değiştirilir:
+Gerçek entegrasyon için `.env` dosyası aşağıdaki gibi güncellenmelidir (Örn: Gemini kullanarak):
 
 ```env
-API_PROVIDER=openai
-OPENAI_API_KEY=sk-...
+API_PROVIDER=gemini
+GEMINI_API_KEY=AIza...
 STRICT_EXTERNAL_DATA=true
-MCP_TUIK_SERVER_PATH=/absolute/path/to/tuik_veri/mcp_server.py
-MCP_BRAND_SERVER_PATH=/absolute/path/to/sektor-ve-haberler/mcp_server.py
+MCP_TUIK_SERVER_PATH=/absolute/path/to/tuik_data/mcp_server.py
+MCP_BRAND_SERVER_PATH=/absolute/path/to/sector_news/mcp_server.py
 ```
 
-Bu modda API/MCP hata verirse sistem durur.
+Bu modda API/MCP hata verirse veya limit aşılırsa sistem güvenli şekilde durur.
 
 ## Çalıştırma
 
